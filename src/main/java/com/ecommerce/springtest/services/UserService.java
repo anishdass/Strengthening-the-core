@@ -3,19 +3,21 @@ package com.ecommerce.springtest.services;
 import com.ecommerce.springtest.dtos.AuthResponse;
 import com.ecommerce.springtest.dtos.LoginRequest;
 import com.ecommerce.springtest.models.User;
-import com.ecommerce.springtest.repositories.MainRepository;
+import com.ecommerce.springtest.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class MainService {
+public class UserService {
 
-    private final AuthenticationService authenticationService;
     private final JwtService jwtService;
-    private final MainRepository mainRepository;
+    private final UserRepository mainRepository;
+    private final PasswordEncoder passwordEncoder;
+
 
     public AuthResponse login(LoginRequest request) {
         Optional<User> user = mainRepository.findByUsername(request.username());
@@ -38,7 +40,17 @@ public class MainService {
 
     }
 
-    public AuthResponse signup(User userDetails) {
-        return authenticationService.signup(userDetails);
+    public AuthResponse signup(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        User savedUser = mainRepository.save(user);
+
+        String jwtToken = jwtService.generateToken(savedUser);
+
+        return AuthResponse.builder()
+                .token(jwtToken)
+                .username(user.getUsername())
+                .message("User signed up")
+                .build();
     }
 }
