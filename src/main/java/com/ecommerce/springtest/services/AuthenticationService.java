@@ -1,5 +1,8 @@
-package com.ecommerce.springtest;
+package com.ecommerce.springtest.services;
 
+import com.ecommerce.springtest.repositories.MainRepository;
+import com.ecommerce.springtest.models.User;
+import com.ecommerce.springtest.dtos.AuthResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

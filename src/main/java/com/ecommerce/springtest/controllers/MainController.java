@@ -1,5 +1,9 @@
-package com.ecommerce.springtest;
+package com.ecommerce.springtest.controllers;
 
+import com.ecommerce.springtest.models.User;
+import com.ecommerce.springtest.dtos.AuthResponse;
+import com.ecommerce.springtest.dtos.LoginRequest;
+import com.ecommerce.springtest.services.MainService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

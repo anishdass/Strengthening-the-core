@@ -1,4 +1,4 @@
-package com.ecommerce.springtest;
+package com.ecommerce.springtest.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

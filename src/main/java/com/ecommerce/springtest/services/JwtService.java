@@ -1,5 +1,6 @@
-package com.ecommerce.springtest;
+package com.ecommerce.springtest.services;
 
+import com.ecommerce.springtest.models.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;

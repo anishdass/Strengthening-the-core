@@ -1,4 +1,4 @@
-package com.ecommerce.springtest;
+package com.ecommerce.springtest.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

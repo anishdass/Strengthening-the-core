@@ -1,5 +1,6 @@
-package com.ecommerce.springtest;
+package com.ecommerce.springtest.repositories;
 
+import com.ecommerce.springtest.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

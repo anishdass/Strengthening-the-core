@@ -1,4 +1,4 @@
-package com.ecommerce.springtest;
+package com.ecommerce.springtest.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
